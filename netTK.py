@@ -4,7 +4,7 @@ __builtins__.VERSION = "0.1"
 
 import sys
 
-sys.path.append("modules")
+sys.path.append("monitor")
 
 from ping import ping
 from database import startHandler

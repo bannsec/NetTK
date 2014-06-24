@@ -5,7 +5,7 @@ __builtins__.VERSION = "0.1"
 import sys
 
 sys.path.append("analysis")
-sys.path.append("modules")
+sys.path.append("monitor")
 
 from lineGraph import lineGraphRun
 from pieChart import pieChartRun
