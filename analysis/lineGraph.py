@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from time import ctime
 from database import getRows
+from helpers import footer
 
 def addTimeTicks(timeStamps, ax):
 	# Verify there's actually timeStamps to work on
@@ -88,6 +89,9 @@ def buildGraph():
 
 		# Add human fiendly times along the bottom
 		addTimeTicks(timeStamps, plot["ax"])
+
+	# Add the footer
+	footer(plt)
 
 def dataGen():
 	# TODO: Make this something useful... Just adding it now because it's required.
