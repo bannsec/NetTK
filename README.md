@@ -15,6 +15,8 @@ NetTK has the following requirements:
 
 1. Python 2.7.x
    * I'm unable to use 3.x due to the SCAPY library I'm using not being ported to Python 3.x
+2. matplotlib python library
+3. scapy python library
 
 ## Installation
 
@@ -22,64 +24,16 @@ NetTK has the following requirements:
   * Click "Download as ZIP" -- or --
   * git clone https://github.com/Owlz/NetTK.git
 2. Make sure you have the latest copy of Python 2.7 (https://www.python.org/downloads/)
-3. Install the dependencies
-  * python matplotlib
-  * python scapy
+3. Install the python dependencies
+  * Ubuntu: ```> sudo apt-get install python-matplotlib python-scapy```
+  * Windows:
+    * MatPlotLib: https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.3.1/matplotlib-1.3.1.win-amd64-py2.7.exe
+    * Install pip: https://pip.pypa.io/en/latest/installing.html
+    * From the command prompt: ``` > pip install scapy ```
 
 ## Quick Start
 
-To get started quickly (after installing), try this:
-
-Edit the netTK.cfg file to the following:
-
-```
-[SQLite Database Handler]
-module = sqliteDB
-dbName = netWatch.db
-
-[Google -- Ping]
-host = google.com
-alias= Google
-module = ping
-ctag = 
-delay = 2
-timeout = 1
-
-[My Router -- Ping]
-host = 192.168.1.1
-alias= Router
-module = ping
-ctag = 
-delay = 2
-timeout = 1
-```
-
-Replace the host values with whatever is correct for you. Next, make your netTKAnalysis.cfg file this:
-
-```
-[SQLite Database Handler]
-module = sqliteDB
-dbName = netWatch.db
-
-
-[lineGraph -- Latency]
-sharex  = True 
-sharey  = True 
-
-alias_1  = Google
-module_1 = ping
-ctag_1  = 
-age_1   = 30 Minutes
-title_1  = Latency to Google via Ping
-
-alias_4  = Router
-module_4 = ping
-ctag_4   = 
-age_4    = 30 Minutes
-title_4  = Latency to My Router via Ping
-```
-
-Now start it up with the following:
+Start it up with the following:
 
 ```shell
 > sudo python ./netTK.py
