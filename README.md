@@ -45,7 +45,7 @@ Next, start up your analysis with the following:
 > python ./netTKAnalysis.py
 ```
 
-You should start seeing a line graph depicting your ping packet delay times to your router and out to google.
+You should start seeing a line graph depicting your ping packet delay times to slashdot compared to delay times to google.
 
 ## Running It
 NetTK is broken down into two components: monitor and analysis.
