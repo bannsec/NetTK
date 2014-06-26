@@ -18,6 +18,10 @@ NetTK has the following requirements:
 2. matplotlib python library
 3. scapy python library
 
+## Platforms
+
+NetTK was developed and tested on Linux. Theoretically, Unix should work just fine. Mac OS might be a bit more involved to get running (not a Mac guy), and I know Windows is involved to get running. For detailed install help, please see the wiki.
+
 ## Installation
 
 1. Grab the latest copy of NetTK
@@ -26,10 +30,6 @@ NetTK has the following requirements:
 2. Make sure you have the latest copy of Python 2.7 (https://www.python.org/downloads/)
 3. Install the python dependencies
   * Ubuntu: ```> sudo apt-get install python-matplotlib python-scapy```
-  * Windows:
-    * MatPlotLib: https://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.3.1/matplotlib-1.3.1.win-amd64-py2.7.exe
-    * Install pip: https://pip.pypa.io/en/latest/installing.html
-    * From the command prompt: ``` > pip install scapy ```
 
 ## Quick Start
 
