@@ -7,7 +7,7 @@ def footer(plt):
 	Input:
 		plt = plt variable for plot we're writing on
 	Action:
-		Write netWatch footer on to plot that was input
+		Write NetTK footer on to plot that was input
 	Returns:
 		Nothing
 	"""

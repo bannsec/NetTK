@@ -26,7 +26,7 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
 
   print "TAG = {0}".format(TAG)
 
-  packet = Ether()/IP(dst=host)/ICMP()/"netWatch v{0}".format(VERSION)
+  packet = Ether()/IP(dst=host)/ICMP()/"NetTK v{0} https://github.com/Owlz/NetTK".format(VERSION)
 
   while True:
       # Check if we should be exiting
@@ -37,7 +37,6 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
 
       ans,unans=srp(packet, verbose=0, timeout=1, retry=0, multi=0)
       if len(ans) == 0:
-	print "Dropped packet"
 	# Save this as a dropped packet
 	addRecord.put({'timeStamp': unans[0][0].sent_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
 	continue
@@ -46,7 +45,6 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
       tx = ans[0][0]
       print "rx = {0}\n".format(rx.time)
       delta = rx.time-tx.sent_time
-      print "Ping:", delta
 
       addRecord.put({'timeStamp': ans[0][0].sent_time, 'delayTime': delta, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 0})
 

@@ -107,15 +107,17 @@ def updateGraph(data):
 		# Grab our row information
 		timeStamps, isDroppedPackets, delayTimes = getRows(plot["table"], age=plot["age"])
 	
+		# Add new data to the graph
 		plot["line"].set_data(timeStamps, delayTimes)
 
-		#ax.set_xlim(0,1)
-		#ax.set_ylim(0,1)
+		# Auto fit the graph
 		plot["ax"].relim()		# reset intern limits of the current axes
 		plot["ax"].autoscale_view()	# reset axes limits 
 
+		# Change x ticks to be human readable
 		addTimeTicks(timeStamps, plot["ax"])
 
+	# Draw the graph
 	fig.canvas.draw()
 
 	return None,

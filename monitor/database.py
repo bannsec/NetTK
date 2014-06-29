@@ -37,7 +37,7 @@ INSERT INTO {0} (timeStamp, isDroppedPacket, delayTime) VALUES (?, ?, ?);
 def connectDB(dbName):
 	"""
 	Input:
-		dbName = sqlite database name to use (i.e.: netWatch.db)
+		dbName = sqlite database name to use (i.e.: NetTK.db)
 	Action:
 		Opens database if it exists, creates it if it doesn't.
 		Populated global variables of conn (sqlite connection) and c (sqlite cursor)
@@ -142,7 +142,7 @@ def getRows(table, age=None):
 def startHandler(dbname, **kwargs):
 	"""
 	Input:
-		dbname = Name of the sqlite database file to use. Will be created if it doesn't exist (i.e.: netWatch.db)
+		dbname = Name of the sqlite database file to use. Will be created if it doesn't exist (i.e.: NetTK.db)
 	Action:
 		Shim function to watch for new items in the addRecord queue, and then call the addRecord function
 		Record should look like {'timeStamp': 12345676.1234, 'delayTime': 0.55123145, 'tableName': 'Google_PING', 'isDroppedPacket': 0}

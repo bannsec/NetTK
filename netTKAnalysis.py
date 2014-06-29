@@ -57,8 +57,10 @@ for section in config._sections:
 
 	# Generic thread call. Looks up the "section" paramter (case insensitive) in dispatcher to know what to call.
 	t = threading.Thread(target=dispatcher[section.lower()], kwargs=kargs)
+
 	# Nothing should be damaged with allowing these to daemonize
 	t.daemon = True
+
 	# Start it
 	t.start()
 

@@ -62,7 +62,7 @@ The netTK.cfg file follows this basic format:
 ; [Title] -- This is for your readability, not used anywhere
 ; host -- (standard) DNS/IP of the host to test
 ; alias -- (standard) Alias of the host to use. This will be what the sqltable name uses
-; module -- (standard) The type of test to use on this host. This is how netWatch decides what to do with the host. For example, "ping".
+; module -- (standard) The type of test to use on this host. This is how NetTK decides what to do with the host. For example, "ping".
 ; ctag -- (optional) Optional tag to be used for defining save table name. Table name becomes "alias_module[_tag]". Useful when module is "tcpping" to keep track of  port/options/etc.
 ; attributes -- (This can vary by module)
 ```
@@ -75,7 +75,7 @@ The analysis modules let you look at the information you have gathered with the 
 
 ```
 ; [Engine] -- This defines what analysis engine you want to use (these are what is under analysis/*)
-; alias_x -- (standard) the alias name to use (take this from the netWatch.cfg file)
+; alias_x -- (standard) the alias name to use (take this from the NetTK.cfg file)
 ; module_x -- (standard) The type of test that was used on this host. For example, "ping".
 ; ctag_x -- (optional) Optional tag to be used for defining save table name. Table name becomes "alias_module[_tag]". Useful when module is "tcpping" to keep track of  port/options/etc.
 ; attributes -- (This can vary by engine)

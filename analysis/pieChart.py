@@ -33,20 +33,11 @@ def buildGraph():
 	# Loop through our registered plots
 	for plot in plots:
 
-		plot["ax"] = plt.subplot2grid((gridx,gridy), (plot["locx"],plot["locy"]), aspect=1)
+		# Create the pie chart plot for this pie chart
+		plot["ax"] = plt.subplot2grid((gridx,gridy), (plot["locy"],plot["locx"]), aspect=1)
 
 		# Grab our row information
 		timeStamps, isDroppedPacket, delayTime = getRows(plot["table"], age=plot["age"])
-
-		# Move over our ax element. If only one registered plot, this will be ax itself, it more than one, it will be in a numpy array.
-		# Make sure we're looking at a list
-		#if isinstance(ax,np.ndarray) == True:
-		#	# Numpy won't let us pop. We'll grab the top, then remove it.
-		#	plot["ax"] = ax[0]
-		#	ax = np.delete(ax,0, axis=0)
-		#else:
-		#	# This is the case where we're only plotting one thing. Just copy it over.
-		#	plot["ax"] = ax
 
 		# Plot our initial data points, saving the line object we will use later to update it for animations.
 		# TODO: Allow customization here
@@ -83,7 +74,7 @@ def updateGraph(data):
 		plot["ax"].relim()		# reset intern limits of the current axes
 		plot["ax"].autoscale_view()	# reset axes limits 
 
-
+	# Draw our pie charts
 	fig.canvas.draw()
 
 	return None,
@@ -110,7 +101,6 @@ def pieChartRun(**args):
 
 	# Set our color variables
 	if "colorgood" in args:
-		print "Hit"
 		colorGood = args["colorgood"]
 	if "colorbad" in args:
 		colorBad = args["colorbad"]
@@ -152,6 +142,7 @@ def pieChartRun(**args):
 # Programmatically define what we want to be looking at
 plots = []
 
+# Default colors
 colorGood = "#7E8F7C"
 colorBad = "#C63D0F"
 
