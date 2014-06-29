@@ -28,6 +28,7 @@ NetTK was developed and tested on Linux. Theoretically, Unix should work just fi
   * Click "Download as ZIP" -- or --
   * git clone https://github.com/Owlz/NetTK.git
 2. Make sure you have the latest copy of Python 2.7 (https://www.python.org/downloads/)
+  * Ubuntu: ```> sudo apt-get install python2.7```
 3. Install the python dependencies
   * Ubuntu: ```> sudo apt-get install python-matplotlib python-scapy```
 
