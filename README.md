@@ -38,6 +38,7 @@ Start it up with the following:
 ```shell
 > sudo python ./netTK.py
 ```
+This needs to be root (sudo'd) because SCAPY will not work properly without it.
 
 Next, start up your analysis with the following:
 
