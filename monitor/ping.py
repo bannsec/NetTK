@@ -24,8 +24,6 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
   timeout = int(timeout)
   TAG = tag
 
-  print "TAG = {0}".format(TAG)
-
   packet = Ether()/IP(dst=host)/ICMP()/"NetTK v{0} https://github.com/Owlz/NetTK".format(VERSION)
 
   while True:
@@ -41,11 +39,14 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
 	addRecord.put({'timeStamp': unans[0][0].sent_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
 	continue
 
+      # Time received and time sent
       rx = ans[0][1]
       tx = ans[0][0]
-      print "rx = {0}\n".format(rx.time)
+
+      # Compute the latency
       delta = rx.time-tx.sent_time
 
+      # Save this information to the database
       addRecord.put({'timeStamp': ans[0][0].sent_time, 'delayTime': delta, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 0})
 
 if __name__=="__main__":
