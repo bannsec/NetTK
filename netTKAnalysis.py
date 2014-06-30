@@ -9,7 +9,7 @@ sys.path.append("monitor")
 
 from lineGraph import lineGraphRun
 from pieChart import pieChartRun
-import threading
+from multiprocessing import Process
 import ConfigParser
 from database import connectDB
 
@@ -56,13 +56,14 @@ for section in config._sections:
 		i += 1
 
 	# Generic thread call. Looks up the "section" paramter (case insensitive) in dispatcher to know what to call.
-	t = threading.Thread(target=dispatcher[section.lower()], kwargs=kargs)
+	#t = threading.Thread(target=dispatcher[section.lower()], kwargs=kargs)
+	p = Process(target=dispatcher[section.lower()], kwargs=kargs)
 
 	# Nothing should be damaged with allowing these to daemonize
-	t.daemon = True
+	p.daemon = True
 
 	# Start it
-	t.start()
+	p.start()
 
 # Wait for the user to want to exit
 print "Press Enter To Exit\n"
