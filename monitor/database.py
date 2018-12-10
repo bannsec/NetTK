@@ -4,7 +4,7 @@ import sqlite3
 from threading import Thread, Lock
 
 # Name of the sqlite database file
-DATABASE = "netTK.db"
+DATABASE = "NetTK.db"
 
 # Define our mutex
 mutex = Lock()
