@@ -79,7 +79,7 @@ def saveRecord(tableName, timeStamp, isDroppedPacket, delayTime):
 		except sqlite3.OperationalError as e:
 
 			# Lets make sure this is the error we're looking for
-			if e.message.startswith("no such table: "):
+			if "no such table:" in str(e).lower():
 				# Create this table on the fly
 				c.execute(createTable.format(tableName))
 
@@ -119,7 +119,7 @@ def getRows(table, age=None):
 	try:
 		c.execute("SELECT timeStamp,isDroppedPacket,delayTime FROM {0} WHERE {1};".format(table,WHERE))
 	except sqlite3.OperationalError as e:
-		if e.message.startswith("database is locked"):
+		if "database is locked" in str(e).lower():
 			# Looks like we hit our db locked problem. Lets give it one more shot to work
 			c.execute("SELECT timeStamp,isDroppedPacket,delayTime FROM {0} WHERE {1};".format(table,WHERE))
 		else:
