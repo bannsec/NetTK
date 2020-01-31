@@ -10,7 +10,11 @@ sys.path.append("monitor")
 from lineGraph import lineGraphRun
 from pieChart import pieChartRun
 from multiprocessing import Process
-import ConfigParser
+try:
+        from ConfigParser import ConfigParser
+except ImportError:
+        import configparser
+        ConfigParser = lambda : configparser.ConfigParser(inline_comment_prefixes=(';',))
 from database import connectDB
 
 CONFIGFILE = "netTKAnalysis.cfg"
@@ -23,7 +27,7 @@ dispatcher = {
 }
 
 # Open up our config file
-config = ConfigParser.ConfigParser()
+config = ConfigParser()
 
 # Read the config
 config.read(CONFIGFILE)

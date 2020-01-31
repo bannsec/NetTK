@@ -11,7 +11,11 @@ from database import startHandler
 import threading
 from Queue import Queue
 import signal
-import ConfigParser
+try:
+        from ConfigParser import ConfigParser
+except ImportError:
+        import configparser
+        ConfigParser = lambda : configparser.ConfigParser(inline_comment_prefixes=(';',))
 
 CONFIGFILE = "netTK.cfg"
 
@@ -50,7 +54,7 @@ __builtins__.addRecord = Queue()
 __builtins__.shouldExit = threading.Event()
 
 # Open up our config file
-config = ConfigParser.ConfigParser()
+config = ConfigParser()
 
 # Read the config
 config.read(CONFIGFILE)
