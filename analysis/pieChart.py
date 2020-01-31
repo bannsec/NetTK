@@ -111,11 +111,11 @@ def pieChartRun(**args):
 		# Append a new plot
 		plots.append({
 
-			"table"	: args["alias_" + str(i)] + "_" + args["tag_" + str(i)],
-			"age"	: args["age_" + str(i)],
-			"title"	: args["title_" + str(i)],
-			"locx" : int(args["locx_" + str(i)]),
-			"locy" : int(args["locy_" + str(i)])
+			"table"	: args["alias_%s" % i] + "_" + args["tag_%s" % i],
+			"age"	: args["age_%s" % i],
+			"title"	: args["title_%s" % i],
+			"locx" : int(args["locx_%s" % i]),
+			"locy" : int(args["locy_%s" % i])
 
 		})
 

@@ -49,12 +49,15 @@ for section in config._sections:
 
 	# Loop through the plots
 	while kargs.has_key("alias_" + str(i)):
+		tag = "tag_%s" % i
+		ctag = "vtag_%s" % i
+		module =  "module_%s" % i
 		# Set tag = "<module_i>
-		kargs["tag_" + str(i)] = kargs["module_" + str(i)].lower()
+		kargs[tag] = kargs[module].lower()
 
 		# If there's a custom ctag, add it to the tag
 		if kargs.has_key("ctag_" + str(i)) and kargs["ctag_" + str(i)] != "":
-			kargs["tag_" + str(i)] += "_" + kargs["ctag_" + str(i)]
+			kargs[tag] += "_" + kargs[ctag]
 
 		# Increment the index
 		i += 1
