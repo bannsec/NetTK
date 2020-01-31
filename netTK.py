@@ -69,7 +69,10 @@ for section in config._sections:
 
 # Wait for the user to want to exit
 print("Press Enter To Exit\n")
-raw_input()
+try:
+	raw_input()
+except NameError:
+	input()
 
 # Let the threads know we should be exiting
 shouldExit.set()
