@@ -67,7 +67,7 @@ for section in config._sections:
 	# Generate the tag for the module to use
 	kargs = dict(config._sections[section])
 	kargs["tag"] = kargs["module"].lower()
-	if kargs.has_key("ctag") and kargs["ctag"] != "":
+	if kargs.get("ctag"):
 		kargs["tag"] += "_" + kargs["ctag"]
 
 	# Generic thread call. Looks up the "test" paramter (case insensitive) in dispatcher to know what to call.

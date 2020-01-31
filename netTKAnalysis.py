@@ -56,7 +56,7 @@ for section in config._sections:
 		kargs[tag] = kargs[module].lower()
 
 		# If there's a custom ctag, add it to the tag
-		if kargs.has_key("ctag_" + str(i)) and kargs["ctag_" + str(i)] != "":
+		if kargs.get(ctag):
 			kargs[tag] += "_" + kargs[ctag]
 
 		# Increment the index
