@@ -106,7 +106,7 @@ def pieChartRun(**args):
 		colorBad = args["colorbad"]
 
 	# Use this to loop thorugh the plots
-	while args.has_key("alias_" + str(i)):
+	while ("alias_%s" % i) in args:
 		
 		# Append a new plot
 		plots.append({

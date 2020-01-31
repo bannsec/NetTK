@@ -48,7 +48,7 @@ for section in config._sections:
 	kargs = dict(config._sections[section])
 
 	# Loop through the plots
-	while kargs.has_key("alias_" + str(i)):
+	while "alias_%s" % i in kargs:
 		tag = "tag_%s" % i
 		ctag = "vtag_%s" % i
 		module =  "module_%s" % i
