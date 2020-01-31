@@ -1,4 +1,4 @@
-#!/usr/bin/python -u
+#!/usr/bin/env python3 -u
 
 __builtins__.VERSION = "0.1"
 

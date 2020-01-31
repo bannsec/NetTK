@@ -1,4 +1,4 @@
-#!/usr/bin/python -u
+#!/usr/bin/env python3 -u
 from scapy.all import *
 from time import sleep
 
