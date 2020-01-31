@@ -50,4 +50,4 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
       addRecord.put({'timeStamp': ans[0][0].sent_time, 'delayTime': delta, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 0})
 
 if __name__=="__main__":
-      print "This isn't meant to be called directly."
+      print("This isn't meant to be called directly.")

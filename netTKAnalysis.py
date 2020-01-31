@@ -66,7 +66,7 @@ for section in config._sections:
 	p.start()
 
 # Wait for the user to want to exit
-print "Press Enter To Exit\n"
+print("Press Enter To Exit\n")
 raw_input()
 
 

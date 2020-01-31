@@ -68,7 +68,7 @@ for section in config._sections:
 	t.start()
 
 # Wait for the user to want to exit
-print "Press Enter To Exit\n"
+print("Press Enter To Exit\n")
 raw_input()
 
 # Let the threads know we should be exiting
