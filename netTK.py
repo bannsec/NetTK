@@ -9,7 +9,10 @@ sys.path.append("monitor")
 from ping import ping
 from database import startHandler
 import threading
-from Queue import Queue
+try:
+	from Queue import Queue
+except ImportError:
+	from queue import Queue
 import signal
 try:
         from ConfigParser import ConfigParser
