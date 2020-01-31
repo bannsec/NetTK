@@ -35,9 +35,9 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
 
       ans,unans=srp(packet, verbose=0, timeout=1, retry=0, multi=0)
       if len(ans) == 0:
-	# Save this as a dropped packet
-	addRecord.put({'timeStamp': unans[0][0].sent_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
-	continue
+        # Save this as a dropped packet
+        addRecord.put({'timeStamp': unans[0][0].sent_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
+        continue
 
       # Time received and time sent
       rx = ans[0][1]
