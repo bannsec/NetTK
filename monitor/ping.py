@@ -1,4 +1,4 @@
-#!/usr/bin/python -u
+#!/usr/bin/env python3 -u
 from scapy.all import *
 from time import sleep
 
@@ -35,9 +35,9 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
 
       ans,unans=srp(packet, verbose=0, timeout=1, retry=0, multi=0)
       if len(ans) == 0:
-	# Save this as a dropped packet
-	addRecord.put({'timeStamp': unans[0][0].sent_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
-	continue
+        # Save this as a dropped packet
+        addRecord.put({'timeStamp': unans[0][0].sent_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
+        continue
 
       # Time received and time sent
       rx = ans[0][1]
@@ -50,4 +50,4 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
       addRecord.put({'timeStamp': ans[0][0].sent_time, 'delayTime': delta, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 0})
 
 if __name__=="__main__":
-      print "This isn't meant to be called directly."
+      print("This isn't meant to be called directly.")

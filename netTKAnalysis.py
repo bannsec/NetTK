@@ -10,7 +10,11 @@ sys.path.append("monitor")
 from lineGraph import lineGraphRun
 from pieChart import pieChartRun
 from multiprocessing import Process
-import ConfigParser
+try:
+        from ConfigParser import ConfigParser
+except ImportError:
+        import configparser
+        ConfigParser = lambda : configparser.ConfigParser(inline_comment_prefixes=(';',))
 from database import connectDB
 
 CONFIGFILE = "netTKAnalysis.cfg"
@@ -23,7 +27,7 @@ dispatcher = {
 }
 
 # Open up our config file
-config = ConfigParser.ConfigParser()
+config = ConfigParser()
 
 # Read the config
 config.read(CONFIGFILE)
@@ -44,13 +48,16 @@ for section in config._sections:
 	kargs = dict(config._sections[section])
 
 	# Loop through the plots
-	while kargs.has_key("alias_" + str(i)):
+	while "alias_%s" % i in kargs:
+		tag = "tag_%s" % i
+		ctag = "vtag_%s" % i
+		module =  "module_%s" % i
 		# Set tag = "<module_i>
-		kargs["tag_" + str(i)] = kargs["module_" + str(i)].lower()
+		kargs[tag] = kargs[module].lower()
 
 		# If there's a custom ctag, add it to the tag
-		if kargs.has_key("ctag_" + str(i)) and kargs["ctag_" + str(i)] != "":
-			kargs["tag_" + str(i)] += "_" + kargs["ctag_" + str(i)]
+		if kargs.get(ctag):
+			kargs[tag] += "_" + kargs[ctag]
 
 		# Increment the index
 		i += 1
@@ -66,7 +73,10 @@ for section in config._sections:
 	p.start()
 
 # Wait for the user to want to exit
-print "Press Enter To Exit\n"
-raw_input()
+print("Press Enter To Exit\n")
+try:
+        raw_input()
+except NameError:
+        input()
 
 

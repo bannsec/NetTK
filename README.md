@@ -13,8 +13,7 @@ Due to this, I decided to write my own network monitoring application and releas
 ## Requirements
 NetTK has the following requirements:
 
-1. Python 2.7.x
-   * I'm unable to use 3.x due to the SCAPY library I'm using not being ported to Python 3.x
+1. Python
 2. matplotlib python library
 3. scapy python library
 
@@ -27,24 +26,24 @@ NetTK was developed and tested on Linux. Theoretically, Unix should work just fi
 1. Grab the latest copy of NetTK
   * Click "Download as ZIP" -- or --
   * git clone https://github.com/Owlz/NetTK.git
-2. Make sure you have the latest copy of Python 2.7 (https://www.python.org/downloads/)
-  * Ubuntu: ```> sudo apt-get install python2.7```
+2. Make sure you have the latest copy of Python (https://www.python.org/downloads/)
+  * Ubuntu: ```> sudo apt-get install python3```
 3. Install the python dependencies
-  * Ubuntu: ```> sudo apt-get install python-matplotlib python-scapy```
+  * Ubuntu: ```> sudo apt-get install python3-matplotlib python3-scapy```
 
 ## Quick Start
 
 Start it up with the following:
 
 ```shell
-> sudo python ./netTK.py
+> sudo python3 ./netTK.py
 ```
 This needs to be root (sudo'd) because SCAPY will not work properly without it.
 
 Next, start up your analysis with the following:
 
 ```shell
-> python ./netTKAnalysis.py
+> python3 ./netTKAnalysis.py
 ```
 
 You should start seeing a line graph depicting your ping packet delay times to slashdot compared to delay times to google.
@@ -88,11 +87,11 @@ As with the monitor modules, the analysis module example config files can be fou
 One you have your monitor and analysis cfg files modified, all you have to do to run it is:
 
 ```shell
-> sudo python ./netTK.py
+> sudo python3 ./netTK.py
 ```
 
 And then to start your analysis:
 
 ```shell
-> python ./netTKAnalysis.py
+> python3 ./netTKAnalysis.py
 ```
