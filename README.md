@@ -24,14 +24,18 @@ NetTK was developed and tested on Linux. Theoretically, Unix should work just fi
 ## Installation
 
 1. Grab the latest copy of NetTK
-  * Click "Download as ZIP" -- or --
-  * git clone https://github.com/bannsec/NetTK.git
+  - Click "Download as ZIP" -- or --
+  - git clone https://github.com/bannsec/NetTK.git
 2. Make sure you have the latest copy of Python (https://www.python.org/downloads/)
-  * Ubuntu: ```> sudo apt-get install python3```
+  - Ubuntu: `> sudo apt-get install python3`
 3. Install the python dependencies
-  * Ubuntu: ```> sudo apt-get install python3-tk```
-4. Install the required dependencies using `setup.py`
-  * Run `pip3 install .` in the root directory of the repository after cloning it
+  - Ubuntu: `> sudo apt-get install python3-tk`
+4. Create and activate a Python virtual environment
+  - Run `python3 -m venv env` to create a virtual environment
+  - Run `source env/bin/activate` to activate the virtual environment
+5. Install the required dependencies using `setup.py`
+  - Run `pip3 install .` in the root directory of the repository after cloning it
+
 
 ## Quick Start
 
