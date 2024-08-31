@@ -139,10 +139,12 @@ def getRows(table, age=None):
 
 
 
-def startHandler(dbname, **kwargs):
+def startHandler(dbname, addRecord, shouldExit, **kwargs):
 	"""
 	Input:
 		dbname = Name of the sqlite database file to use. Will be created if it doesn't exist (i.e.: NetTK.db)
+		addRecord = Queue for adding records
+		shouldExit = Event to signal when to exit
 	Action:
 		Shim function to watch for new items in the addRecord queue, and then call the addRecord function
 		Record should look like {'timeStamp': 12345676.1234, 'delayTime': 0.55123145, 'tableName': 'Google_PING', 'isDroppedPacket': 0}

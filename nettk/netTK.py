@@ -50,10 +50,10 @@ dispatcher = {
 signal.signal(signal.SIGINT, signal_handler)
 
 # Define an addRecord queue
-__builtins__.addRecord = Queue()
+addRecord = Queue()
 
 # Define our exit event to allow threads to cleanly exit
-__builtins__.shouldExit = threading.Event()
+shouldExit = threading.Event()
 
 # Open up our config file
 config = ConfigParser()
@@ -68,6 +68,10 @@ for section in config._sections:
 	kargs["tag"] = kargs["module"].lower()
 	if kargs.get("ctag"):
 		kargs["tag"] += "_" + kargs["ctag"]
+
+	# Add addRecord and shouldExit to kargs
+	kargs["addRecord"] = addRecord
+	kargs["shouldExit"] = shouldExit
 
 	# Generic thread call. Looks up the "test" paramter (case insensitive) in dispatcher to know what to call.
 	t = threading.Thread(target=dispatcher[config._sections[section]["module"].lower()], kwargs=kargs)

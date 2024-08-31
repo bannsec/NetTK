@@ -3,7 +3,7 @@ from scapy.all import *
 from time import sleep
 from nettk.version import VERSION
 
-def ping(host, alias, tag , delay=1, timeout=1, **args):
+def ping(host, alias, tag , delay=1, timeout=1, addRecord=None, shouldExit=None, **args):
   """
 	Input:
 		Associative array containing the following args. (i.e.: {"host": "Google.com", "alias": "Google"})
@@ -12,6 +12,8 @@ def ping(host, alias, tag , delay=1, timeout=1, **args):
 		tag = tag for saving information. provided by the framework
 		(optional) delay = time delay in seconds between attempts to contact the host (i.e.: "1" without quotes for 1 second delays)
 		(optional) timeout = how long to wait for a reply to the ping in seconds. defaults to 1 second.
+		(optional) addRecord = Queue for adding records
+		(optional) shouldExit = Event to signal when to exit
 
 	Action:
 		Ping's the host continuously until told to stop. Records packet delay time and dropped packets.
