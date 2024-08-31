@@ -29,7 +29,9 @@ NetTK was developed and tested on Linux. Theoretically, Unix should work just fi
 2. Make sure you have the latest copy of Python (https://www.python.org/downloads/)
   * Ubuntu: ```> sudo apt-get install python3```
 3. Install the python dependencies
-  * Ubuntu: ```> sudo apt-get install python3-matplotlib python3-scapy python3-tk```
+  * Ubuntu: ```> sudo apt-get install python3-tk```
+4. Install the required dependencies using `setup.py`
+  * Run `pip3 install .` in the root directory of the repository after cloning it
 
 ## Quick Start
 
