@@ -25,7 +25,7 @@ NetTK was developed and tested on Linux. Theoretically, Unix should work just fi
 
 1. Grab the latest copy of NetTK
   * Click "Download as ZIP" -- or --
-  * git clone https://github.com/Owlz/NetTK.git
+  * git clone https://github.com/bannsec/NetTK.git
 2. Make sure you have the latest copy of Python (https://www.python.org/downloads/)
   * Ubuntu: ```> sudo apt-get install python3```
 3. Install the python dependencies
