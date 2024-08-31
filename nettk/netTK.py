@@ -7,6 +7,7 @@ from nettk.version import VERSION
 sys.path.append("monitor")
 
 from ping import ping
+from tcpping import tcpping
 from database import startHandler
 import threading
 try:
@@ -45,7 +46,8 @@ def signal_handler(signal, frame):
 # Register new abilities here to be callable
 dispatcher = {
 	'sqlitedb': startHandler, 
-	'ping': ping
+	'ping': ping,
+	'tcpping': tcpping
 }
 
 def main():
