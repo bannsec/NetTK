@@ -25,55 +25,59 @@ dispatcher = {
 	'piechart -- dropped packets': pieChartRun
 }
 
-# Open up our config file
-config = ConfigParser()
+def main():
+    # Open up our config file
+    config = ConfigParser()
 
-# Read the config
-config.read(CONFIGFILE)
+    # Read the config
+    config.read(CONFIGFILE)
 
-# Loop through the config, starting up whatever we need to.
-for section in config._sections:
+    # Loop through the config, starting up whatever we need to.
+    for section in config._sections:
 
-	# Special case of connecting to DB
-	# TODO: Need to have better way of handling the db...
-	if section == "SQLite Database Handler":
-		connectDB(config._sections[section]["dbname"])
-		continue
+        # Special case of connecting to DB
+        # TODO: Need to have better way of handling the db...
+        if section == "SQLite Database Handler":
+            connectDB(config._sections[section]["dbname"])
+            continue
 
-	# Index to keep track of multiple graphs per section
-	i = 1
+        # Index to keep track of multiple graphs per section
+        i = 1
 
-	# standardize the dict to a normal dict
-	kargs = dict(config._sections[section])
+        # standardize the dict to a normal dict
+        kargs = dict(config._sections[section])
 
-	# Loop through the plots
-	while "alias_%s" % i in kargs:
-		tag = "tag_%s" % i
-		ctag = "vtag_%s" % i
-		module =  "module_%s" % i
-		# Set tag = "<module_i>
-		kargs[tag] = kargs[module].lower()
+        # Loop through the plots
+        while "alias_%s" % i in kargs:
+            tag = "tag_%s" % i
+            ctag = "vtag_%s" % i
+            module =  "module_%s" % i
+            # Set tag = "<module_i>
+            kargs[tag] = kargs[module].lower()
 
-		# If there's a custom ctag, add it to the tag
-		if kargs.get(ctag):
-			kargs[tag] += "_" + kargs[ctag]
+            # If there's a custom ctag, add it to the tag
+            if kargs.get(ctag):
+                kargs[tag] += "_" + kargs[ctag]
 
-		# Increment the index
-		i += 1
+            # Increment the index
+            i += 1
 
-	# Generic thread call. Looks up the "section" paramter (case insensitive) in dispatcher to know what to call.
-	#t = threading.Thread(target=dispatcher[section.lower()], kwargs=kargs)
-	p = Process(target=dispatcher[section.lower()], kwargs=kargs)
+        # Generic thread call. Looks up the "section" paramter (case insensitive) in dispatcher to know what to call.
+        #t = threading.Thread(target=dispatcher[section.lower()], kwargs=kargs)
+        p = Process(target=dispatcher[section.lower()], kwargs=kargs)
 
-	# Nothing should be damaged with allowing these to daemonize
-	p.daemon = True
+        # Nothing should be damaged with allowing these to daemonize
+        p.daemon = True
 
-	# Start it
-	p.start()
+        # Start it
+        p.start()
 
-# Wait for the user to want to exit
-print("Press Enter To Exit\n")
-try:
-        raw_input()
-except NameError:
-        input()
+    # Wait for the user to want to exit
+    print("Press Enter To Exit\n")
+    try:
+            raw_input()
+    except NameError:
+            input()
+
+if __name__ == "__main__":
+    main()
