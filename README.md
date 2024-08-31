@@ -108,3 +108,15 @@ And then to start your analysis:
 # Run it
 > netTKAnalysis
 ```
+
+## Monitor Providers
+
+Monitor providers are responsible for monitoring network statistics and recording data.
+
+### Ping Monitor Provider
+
+The `ping` monitor provider continuously pings a host and records packet delay time and dropped packets.
+
+### TCP Ping Monitor Provider
+
+The `tcpping` monitor provider continuously TCP pings a host and records packet delay time and dropped packets.
