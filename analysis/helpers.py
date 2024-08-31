@@ -14,4 +14,4 @@ def footer(plt):
 		Nothing
 	"""
 
-	plt.figtext(0.02,0.02,"Powered By NetTK v{0} -- https://github.com/Owlz/NetTK".format(VERSION))
+	plt.figtext(0.02,0.02,"Powered By NetTK v{0} -- https://github.com/bannsec/NetTK".format(VERSION))

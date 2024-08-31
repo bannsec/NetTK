@@ -27,7 +27,7 @@ def ping(host, alias, tag , delay=1, timeout=1, addRecord=None, shouldExit=None,
   timeout = int(timeout)
   TAG = tag
 
-  packet = Ether()/IP(dst=host)/ICMP()/"NetTK v{0} https://github.com/Owlz/NetTK".format(VERSION)
+  packet = Ether()/IP(dst=host)/ICMP()/"NetTK v{0} https://github.com/bannsec/NetTK".format(VERSION)
 
   while True:
       # Check if we should be exiting
