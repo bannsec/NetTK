@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys
+import os
 from nettk.version import VERSION
 
 sys.path.append("analysis")
@@ -16,7 +17,8 @@ except ImportError:
         ConfigParser = lambda : configparser.ConfigParser(inline_comment_prefixes=(';',))
 from database import connectDB
 
-CONFIGFILE = "../netTKAnalysis.cfg"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+CONFIGFILE = os.path.join(script_dir, "../netTKAnalysis.cfg")
 
 # Register new abilities here to be callable
 # Remember the keys here should be lowercase

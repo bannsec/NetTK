@@ -1,6 +1,7 @@
 #!/usr/bin/env python3 -u
 
 import sys
+import os
 from nettk.version import VERSION
 
 sys.path.append("monitor")
@@ -19,7 +20,8 @@ except ImportError:
         import configparser
         ConfigParser = lambda : configparser.ConfigParser(inline_comment_prefixes=(';',))
 
-CONFIGFILE = "../netTK.cfg"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+CONFIGFILE = os.path.join(script_dir, "../netTK.cfg")
 
 def cleanExit():
 	"""
