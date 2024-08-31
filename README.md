@@ -93,11 +93,19 @@ As with the monitor modules, the analysis module example config files can be fou
 One you have your monitor and analysis cfg files modified, all you have to do to run it is:
 
 ```shell
+# Activate the virtual environment
+> source env/bin/activate
+
+# Run it
 > sudo python3 ./netTK.py
 ```
 
 And then to start your analysis:
 
 ```shell
+# Activate the virtual environment
+> source env/bin/activate
+
+# Run it
 > python3 ./netTKAnalysis.py
 ```
