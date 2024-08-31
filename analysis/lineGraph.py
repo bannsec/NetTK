@@ -162,7 +162,7 @@ def lineGraphRun(**args):
 	# Register the animation
 	# TODO: Currently live updating is very inefficient :(
 	# TODO: Give option to animate or not
-	im_ani = animation.FuncAnimation(fig, updateGraph, dataGen, interval=1000)
+	im_ani = animation.FuncAnimation(fig, updateGraph, dataGen, interval=1000, cache_frame_data=False)
 
 	# TODO: Give option to examine date range instead of age.
 
@@ -177,4 +177,3 @@ def lineGraphRun(**args):
 plots = []
 sharex = False
 sharey = False
-

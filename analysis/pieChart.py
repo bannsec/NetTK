@@ -128,7 +128,7 @@ def pieChartRun(**args):
 	# Register the animation
 	# TODO: Currently live updating is very inefficient :(
 	# TODO: Give option to animate or not
-	im_ani = animation.FuncAnimation(fig, updateGraph, dataGen, interval=2000)
+	im_ani = animation.FuncAnimation(fig, updateGraph, dataGen, interval=2000, cache_frame_data=False)
 
 	# TODO: Give option to examine date range instead of age.
 
@@ -145,4 +145,3 @@ plots = []
 # Default colors
 colorGood = "#7E8F7C"
 colorBad = "#C63D0F"
-
