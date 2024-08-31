@@ -49,6 +49,11 @@ dispatcher = {
 }
 
 def main():
+	# Check if running as root
+	if os.geteuid() != 0:
+		print("This script needs to be run as root. Re-running with sudo...")
+		os.execvp("sudo", ["sudo", "-E"] + sys.argv)
+
 	# Register our SIGINT handler
 	signal.signal(signal.SIGINT, signal_handler)
 

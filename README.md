@@ -42,14 +42,13 @@ NetTK was developed and tested on Linux. Theoretically, Unix should work just fi
 Start it up with the following:
 
 ```shell
-> sudo python3 ./netTK.py
+> netTK
 ```
-This needs to be root (sudo'd) because SCAPY will not work properly without it.
 
 Next, start up your analysis with the following:
 
 ```shell
-> python3 ./netTKAnalysis.py
+> netTKAnalysis
 ```
 
 You should start seeing a line graph depicting your ping packet delay times to slashdot compared to delay times to google.
@@ -97,7 +96,7 @@ One you have your monitor and analysis cfg files modified, all you have to do to
 > source env/bin/activate
 
 # Run it
-> sudo python3 ./netTK.py
+> netTK
 ```
 
 And then to start your analysis:
@@ -107,5 +106,5 @@ And then to start your analysis:
 > source env/bin/activate
 
 # Run it
-> python3 ./netTKAnalysis.py
+> netTKAnalysis
 ```
