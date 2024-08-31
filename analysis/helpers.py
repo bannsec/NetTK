@@ -2,6 +2,8 @@
 # Library of generally helpful things
 #
 
+from nettk.version import VERSION
+
 def footer(plt):
 	"""
 	Input:

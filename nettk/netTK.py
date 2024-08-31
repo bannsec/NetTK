@@ -1,8 +1,7 @@
 #!/usr/bin/env python3 -u
 
-__builtins__.VERSION = "0.1"
-
 import sys
+from nettk.version import VERSION
 
 sys.path.append("monitor")
 

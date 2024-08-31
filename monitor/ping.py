@@ -1,6 +1,7 @@
 #!/usr/bin/env python3 -u
 from scapy.all import *
 from time import sleep
+from nettk.version import VERSION
 
 def ping(host, alias, tag , delay=1, timeout=1, **args):
   """

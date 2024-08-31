@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-__builtins__.VERSION = "0.1"
-
 import sys
+from nettk.version import VERSION
 
 sys.path.append("analysis")
 sys.path.append("monitor")
@@ -78,4 +77,3 @@ try:
         raw_input()
 except NameError:
         input()
-
