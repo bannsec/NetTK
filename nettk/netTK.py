@@ -20,7 +20,7 @@ except ImportError:
         import configparser
         ConfigParser = lambda : configparser.ConfigParser(inline_comment_prefixes=(';',))
 
-CONFIGFILE = "netTK.cfg"
+CONFIGFILE = "../netTK.cfg"
 
 def cleanExit():
 	"""
@@ -83,4 +83,3 @@ except NameError:
 
 # Let the threads know we should be exiting
 shouldExit.set()
-

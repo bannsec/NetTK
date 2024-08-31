@@ -17,7 +17,7 @@ except ImportError:
         ConfigParser = lambda : configparser.ConfigParser(inline_comment_prefixes=(';',))
 from database import connectDB
 
-CONFIGFILE = "netTKAnalysis.cfg"
+CONFIGFILE = "../netTKAnalysis.cfg"
 
 # Register new abilities here to be callable
 # Remember the keys here should be lowercase
@@ -78,5 +78,4 @@ try:
         raw_input()
 except NameError:
         input()
-
 

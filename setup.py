@@ -9,4 +9,10 @@ setup(
         'numpy',
         'matplotlib',
     ],
+    entry_points={
+        'console_scripts': [
+            'netTK=nettk.netTK:main',
+            'netTKAnalysis=nettk.netTKAnalysis:main',
+        ],
+    },
 )
