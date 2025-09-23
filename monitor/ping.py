@@ -1,6 +1,6 @@
 #!/usr/bin/env python3 -u
 from scapy.all import *
-from time import sleep
+from time import sleep, time
 from nettk.version import VERSION
 
 def ping(host, alias, tag , delay=1, timeout=1, addRecord=None, shouldExit=None, **args):
@@ -36,21 +36,24 @@ def ping(host, alias, tag , delay=1, timeout=1, addRecord=None, shouldExit=None,
 
       sleep(delay)
 
-      ans,unans=srp(packet, verbose=0, timeout=1, retry=0, multi=0)
+      start_time = time()
+      ans, unans = srp(packet, verbose=0, timeout=timeout, retry=0, multi=0)
       if len(ans) == 0:
         # Save this as a dropped packet
-        addRecord.put({'timeStamp': unans[0][0].sent_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
+        addRecord.put({'timeStamp': start_time, 'delayTime': None, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 1})
         continue
 
-      # Time received and time sent
+      # Time received
       rx = ans[0][1]
-      tx = ans[0][0]
 
-      # Compute the latency
-      delta = rx.time-tx.sent_time
+      # Compute the latency (fallback if rx.time is missing)
+      if hasattr(rx, "time") and isinstance(rx.time, (int, float)):
+          delta = rx.time - start_time
+      else:
+          delta = time() - start_time
 
       # Save this information to the database
-      addRecord.put({'timeStamp': ans[0][0].sent_time, 'delayTime': delta, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 0})
+      addRecord.put({'timeStamp': start_time, 'delayTime': delta, 'tableName': alias + "_" + TAG, 'isDroppedPacket': 0})
 
 if __name__=="__main__":
       print("This isn't meant to be called directly.")

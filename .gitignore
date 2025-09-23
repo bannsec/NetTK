@@ -2,3 +2,11 @@ NetTK.db
 NetTK.egg-info/
 *.pyc
 *.swp
+__pycache__/
+.env
+env/
+.venv/
+venv/
+dist/
+build/
+.DS_Store
