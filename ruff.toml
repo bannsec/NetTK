@@ -1,0 +1,21 @@
+line-length = 88
+target-version = "py39"
+exclude = [
+  ".git",
+  "build",
+  "dist",
+  "NetTK.egg-info",
+  "env",
+]
+[lint]
+# Ignore __init__.py unused-imports; allow __pycache__ and build dirs
+ignore = []
+select = ["E", "F", "I"]
+
+[format]
+quote-style = "preserve"
+indent-style = "space"
+line-ending = "auto"
+
+[lint.isort]
+known-first-party = ["nettk"]
