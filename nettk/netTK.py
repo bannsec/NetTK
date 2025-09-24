@@ -51,7 +51,12 @@ dispatcher = {
 }
 
 def main():
-	# Check if running as root
+	# Version-only mode: allow non-root and exit cleanly
+	if any(a in ("--version", "-V") for a in sys.argv[1:]):
+		print(f"netTK {VERSION}")
+		return 0
+
+	# Check if running as root for monitoring mode
 	if os.geteuid() != 0:
 		print("This script needs to be run as root. Re-running with sudo...")
 		os.execvp("sudo", ["sudo", "-E"] + sys.argv)

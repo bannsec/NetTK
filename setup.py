@@ -5,9 +5,9 @@ setup(
     version='0.1',
     packages=find_packages(),
     install_requires=[
-        'scapy',
+        'scapy==2.6.1',
         'numpy',
-        'matplotlib',
+        'matplotlib==3.9.4',
     ],
     entry_points={
         'console_scripts': [
