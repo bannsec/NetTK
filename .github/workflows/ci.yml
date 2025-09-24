@@ -18,6 +18,8 @@ jobs:
         run: python -m build
       - name: Install built wheel
         run: pip install dist/*.whl
+      - name: CLI version smoke test (no sudo)
+        run: netTK --version
       - name: Import smoke test (no sudo)
         run: |
           python - <<'PY'
